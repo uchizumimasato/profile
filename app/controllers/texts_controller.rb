@@ -1,7 +1,8 @@
 class TextsController < ApplicationController
+  before_action :user_params
+
   def index
     @texts = Text.all
-    @user = User.find(1)
   end
 
   def new
@@ -10,6 +11,7 @@ class TextsController < ApplicationController
 
   def create
     Text.create(text_params)
+    redirect_to texts_path
   end
 
   def edit
@@ -30,5 +32,9 @@ class TextsController < ApplicationController
   private
   def text_params
     params.require(:text).permit(:tag, :text)
+  end
+
+  def user_params
+    @user = User.find(1)
   end
 end
