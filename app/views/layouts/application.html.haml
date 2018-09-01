@@ -6,6 +6,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons"
   %body
     %header
       = link_to "管理者ページ", user_path(@user) if controller.controller_name == 'texts' && controller.action_name == 'index'
