@@ -7,4 +7,12 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %header
+      = link_to "管理者ページ", user_path(@user) if controller.controller_name == 'texts' && controller.action_name == 'index'
+      - unless controller.controller_name == 'texts' && controller.action_name == 'index'
+        = link_to "プロフィールの作成", new_text_path
+        プロフィールの編集
+        プロフィールの削除
+        = link_to "管理者ページへ", user_path(@user)
+        = link_to "プロフィール一覧に戻る", texts_path
     = yield
