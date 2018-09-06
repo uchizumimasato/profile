@@ -1,5 +1,6 @@
-- @texts.each do |t|
-  %p
-    = t.tag
-    %br
-    = t.text
+.row.content
+  .col.s12.m6.card-content
+    .card.blue-grey.darken
+      .card-content.write-text
+        %span.class-title= @texts[0].tag
+        %p= simple_format @texts[0].text

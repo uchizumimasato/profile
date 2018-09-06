@@ -1,0 +1,17 @@
+.content {
+  height: 600px;
+
+  .card-content {
+    height: 100%;
+    width: 90% !important;
+    margin: 30px 0 0 35px !important;
+
+    .card {
+      height: 100%;
+
+      p {
+        font-size: 24px; 
+      }
+    }
+  } 
+}
