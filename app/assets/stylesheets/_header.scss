@@ -1,0 +1,72 @@
+header {
+  background-color: #f06292;
+  height: 80px;
+  margin-bottom: 20px;
+  text-align: right;
+
+  .admin-link {
+    width: 80px;
+    height: 100%;
+    background-color: #607d8b;
+    float: right;
+    font-size: 18px;
+    color: #424242;
+    padding: 17px 10px 0 0;
+    line-height: 20px;
+
+    .admin-link-button {
+      color: #263238;
+    }
+  }
+
+  ul#menu {
+    height: 100%;
+    float: right;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+
+    li.menu {
+      height: 100%;
+      float: left;
+      position: relative;
+      margin: 0;
+      padding: 15px;
+      width: 120px;
+      background-color: #555555;
+      display: block;
+
+      ul.child {
+        display: none;
+        position: absolute;
+        margin-left: -5px;
+        padding: 0;
+
+        li {
+          height: 32px;
+          float: left;
+          position: relative;
+          margin: 0;
+          padding: 0 15px 0 15px;
+          width: 120px;
+          background-color: #555555;
+          display: block;
+        }
+
+        li a {
+          padding: 5px 10px;
+          margin-left: -15px;
+          margin-right: -5px;
+          margin-bottom: -5px;
+          display: block;
+          color: #fff;
+        }
+        li a:hover{
+          background: #3d5afe;
+        }
+      }
+    }
+  }
+}
+

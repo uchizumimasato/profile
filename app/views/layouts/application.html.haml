@@ -9,11 +9,27 @@
     = stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons"
   %body
     %header
-      = link_to "管理者ページ", user_path(@user) if controller.controller_name == 'texts' && controller.action_name == 'index'
-      - unless controller.controller_name == 'texts' && controller.action_name == 'index'
-        = link_to "プロフィールの作成", new_text_path
-        プロフィールの編集
-        プロフィールの削除
-        = link_to "管理者ページへ", user_path(@user)
-        = link_to "プロフィール一覧に戻る", texts_path
+      - if controller.controller_name == 'texts' && controller.action_name == 'index'
+        .admin-link
+          = link_to "管理者ページ", user_path(@user), class: 'admin-link-button'
+      - elsif controller.controller_name == 'texts' || controller.controller_name == 'users'
+        %ul#menu
+          %li.menu
+            = link_to "プロフィールの作成", new_text_path, class: 'link'
+          %li.menu
+            プロフィールの編集
+            %ul.child
+              - @texts.each do |text|
+                %li
+                  = link_to "#{text.tag}", edit_text_path(text), class: 'dropdown-link'
+          %li.menu
+            プロフィールの削除
+            %ul.child
+              - @texts.each do |text|
+                %li
+                  = link_to "#{text.tag}", text_path(text), class: 'dropdown-link', method: :delete
+          %li.menu
+            = link_to "プロフィール一覧へ戻る", texts_path, class: 'link'
+          %li.menu
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
     = yield
