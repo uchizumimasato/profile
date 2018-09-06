@@ -1,4 +1,11 @@
-= form_for @text do |f|
-	= f.text_field :tag
-	= f.text_area :text
-	= f.submit "ボタン"
+.row
+  = form_for @text, :html => {class: "col s12"} do |f|
+    .row
+      .input-field.col.s6
+        = f.text_field :tag, id: "first_name", class: "validate", placeholder: "Tagを入力してください" 
+        = f.label :tag, for: "first_name"
+    .row
+      .input_field.col.s12
+        = f.label :text, for: "textarea1" 
+        = f.text_area :text, placeholder: "自己紹介文を入力してください", id: "textarea1", class: "materialize-textarea"
+
