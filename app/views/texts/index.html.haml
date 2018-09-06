@@ -1,6 +1,23 @@
-.row.content
-  .col.s12.m6.card-content
-    .card.blue-grey.darken
-      .card-content.write-text
-        %span.class-title= @texts[0].tag
-        %p= simple_format @texts[0].text
+%ul.tab-menu.clearfix
+  %li.active= @texts[0].tag
+  - @texts.each_with_index do |text, i|
+    - if i >= 1
+      %li= text.tag
+
+.contents
+  %ul.show
+    %li
+      .row.content
+        .col.s12.m6
+          .card.blue-grey.darken
+            .card-content.write-text
+              = simple_format @texts[0].text
+  - @texts.each_with_index do |text, i|
+    - if i >= 1
+      %ul
+        %li
+          .row.content
+            .col.s12.m6
+              .card.blue-grey.darken
+                .card-content.write-text
+                  = simple_format text.text
