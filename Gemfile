@@ -58,4 +58,5 @@ gem 'erb2haml'
 gem 'haml-rails'
 gem 'devise'
 gem 'materialize-sass'
+gem "font-awesome-rails"
 ruby '2.4.0'

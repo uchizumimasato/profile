@@ -2,6 +2,13 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    / OGPの設定
+    %meta{:name => "og:url", :content => "https://murmuring-scrubland-24953.herokuapp.com/"}/ 
+    %meta{:name => "og:type", :content => "website"}/
+    %meta{:name => "og:title", :content => "Profile"}/
+    %meta{:name => "og:description", :content => "自己紹介ページ"}/
+    %meta{:name => "twitter:card", :content => "summary_large_image"}/  
+    %meta{:name => "twitter:site", :content => "@testkun57975715"}/  
     %title Profile
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -29,7 +36,7 @@
                 %li
                   = link_to "#{text.tag}", text_path(text), class: 'dropdown-link', method: :delete
           %li.menu
-            = link_to "プロフィール一覧へ戻る", texts_path, class: 'link'
+            = link_to "トップページへ戻る", texts_path, class: 'link'
           %li.menu
             = link_to "ログアウト", destroy_user_session_path, method: :delete
     = yield
