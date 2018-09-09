@@ -1,22 +1,40 @@
-.content {
-  height: 600px;
+.contents {
 
-  .col {
-    width: 95% !important;
-    margin-left: 40px !important;
+  .twitter_icon {
+    margin-left: 50px;
 
-    .card {
-      height: 100%;
-      width: 90% !important;
-      margin: 0;
- 
-      .card-content {
-        height: 100% !important;
+    i {
+      font-size: 40px; 
+    }
+  }
+  ul.show {
+    display: block;
+  }
+  
+  ul {
+    display: none;
 
-        p {
-          font-size: 24px; 
+    .content {
+      height: 600px;
+    
+      .col {
+        width: 95% !important;
+        margin-left: 40px !important;
+    
+        .card {
+          height: 100%;
+          width: 90% !important;
+          margin: 0;
+     
+          .card-content {
+            height: 100% !important;
+    
+            p {
+              font-size: 22px; 
+            }
+          }
         }
-      }
+      } 
     }
   } 
 }
@@ -44,18 +62,18 @@
   }
 }
 
-.contents {
-  ul {
-    display: none; 
-  }
-
-  ul.show {
-    display: block;
-  }
-}
-
-.clearfix::after{
-  content: "";
-  display: block;
-  clear: both;
-}
+//.contents {
+//  ul {
+//    display: none; 
+//  }
+//
+//  ul.show {
+//    display: block;
+//  }
+//}
+//
+//.clearfix::after{
+//  content: "";
+//  display: block;
+//  clear: both;
+//}
