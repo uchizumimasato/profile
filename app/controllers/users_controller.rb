@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   before_action :move_sign_in
 
 	def show
-		@user = User.find(1)
-    @texts = Text.all
+		@user = current_user
+    @texts = @user.texts
 	end
 
   private

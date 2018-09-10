@@ -3,12 +3,13 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     / OGPの設定
-    %meta{:name => "og:url", :content => "https://murmuring-scrubland-24953.herokuapp.com/"}/ 
+    %meta{:name => "twitter:card", :content => "summary_large_image"}/  
+    %meta{:name => "twitter:site", :content => "@testkun57975715"}/
+    %meta{:name => "og:url", :content => "https://2b14684b.ngrok.io"}/ 
     %meta{:name => "og:type", :content => "website"}/
     %meta{:name => "og:title", :content => "Profile"}/
-    %meta{:name => "og:description", :content => "自己紹介ページ"}/
-    %meta{:name => "twitter:card", :content => "summary_large_image"}/  
-    %meta{:name => "twitter:site", :content => "@testkun57975715"}/  
+    %meta{:name => "og:description", :content => "自己紹介ページ"}/ 
+    %meta{:content => asset_url('neko.jpg'), :name => "twitter:image"}/ 
     %title Profile
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -18,25 +19,30 @@
     %header
       - if controller.controller_name == 'texts' && controller.action_name == 'index'
         .admin-link
-          = link_to "管理者ページ", user_path(@user), class: 'admin-link-button'
+          - if user_signed_in?
+            = link_to "管理者ページ", user_path(current_user), class: 'admin-link-button'
+          - else
+            = link_to "ログイン", new_user_session_path
       - elsif controller.controller_name == 'texts' || controller.controller_name == 'users'
         %ul#menu
           %li.menu
-            = link_to "プロフィールの作成", new_text_path, class: 'link'
-          %li.menu
-            プロフィールの編集
-            %ul.child
-              - @texts.each do |text|
-                %li
-                  = link_to "#{text.tag}", edit_text_path(text), class: 'dropdown-link'
-          %li.menu
-            プロフィールの削除
-            %ul.child
-              - @texts.each do |text|
-                %li
-                  = link_to "#{text.tag}", text_path(text), class: 'dropdown-link', method: :delete
-          %li.menu
             = link_to "トップページへ戻る", texts_path, class: 'link'
+          %li.menu
+            = link_to "プロフィールの作成", new_text_path, class: 'link'
+          - if current_user.texts.present?
+            %li.menu
+              プロフィールの編集
+              %ul.child
+                - @texts.each do |text|
+                  %li
+                    = link_to "#{text.tag}", edit_text_path(text), class: 'dropdown-link'
+            %li.menu
+              プロフィールの削除
+              %ul.child
+                - @texts.each do |text|
+                  %li
+                    = link_to "#{text.tag}", text_path(text), class: 'dropdown-link', method: :delete
+          
           %li.menu
             = link_to "ログアウト", destroy_user_session_path, method: :delete
     = yield

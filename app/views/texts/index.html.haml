@@ -1,26 +1,27 @@
-%ul.tab-menu.clearfix
-  %li.active= @texts[0].tag
-  - @texts.each_with_index do |text, i|
-    - if i >= 1
-      %li= text.tag
-
-.contents
-  %ul.show
-    %li
-      .row.content
-        .col.s12.m6
-          .card.blue-grey.darken
-            .card-content.write-text
-              = simple_format @texts[0].text
-  - @texts.each_with_index do |text, i|
-    - if i >= 1
-      %ul
-        %li
-          .row.content
-            .col.s12.m6
-              .card.blue-grey.darken
-                .card-content.write-text
-                  = simple_format text.text
-  .twitter_icon
-    = link_to "http://twitter.com/share?url=https://murmuring-scrubland-24953.herokuapp.com/", {"target" => "_blank"} do
-      %i.fa.fa-twitter-square{"aria-hidden" => "true"}
+- if @texts.present?
+  %ul.tab-menu.clearfix
+    %li.active= @texts[0].tag
+    - @texts.each_with_index do |text, i|
+      - if i >= 1
+        %li= text.tag
+  
+  .contents
+    %ul.show
+      %li
+        .row.content
+          .col.s12.m6
+            .card.blue-grey.darken
+              .card-content.write-text
+                = simple_format @texts[0].text
+    - @texts.each_with_index do |text, i|
+      - if i >= 1
+        %ul
+          %li
+            .row.content
+              .col.s12.m6
+                .card.blue-grey.darken
+                  .card-content.write-text
+                    = simple_format text.text
+    .twitter_icon
+      = link_to "http://twitter.com/share?url=https://murmuring-scrubland-24953.herokuapp.com/", {"target" => "_blank"} do
+        %i.fa.fa-twitter-square{"aria-hidden" => "true"}

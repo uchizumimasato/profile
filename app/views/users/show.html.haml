@@ -1,9 +1,11 @@
-%div{:style => "margin-left: 50px;" "font-size: 30px;"} プロフィール一覧
-- @texts.each do |text|
-  .row
-    .col.s12.m6.card-content
-      .card.blue-grey.darken
-        .card-content.write-text
-          %p= simple_format text.tag
-          %p= simple_format text.text
-
+- if current_user.texts.present?
+  %div{:style => "margin-left: 50px;" "font-size: 28px;"} プロフィール一覧
+  - @texts.each do |text|
+    .row
+      .col.s12.m6.card-content
+        .card.blue-grey.darken
+          .card-content.write-text
+            %p= simple_format text.tag
+            %p= simple_format text.text
+- else
+  %div{:style => "margin-left: 50px;" "font-size: 28px;"} プロフィールはありません
