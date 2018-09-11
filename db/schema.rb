@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 20180909164712) do
 
   create_table "texts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "tag"
-    t.text     "text",       limit: 65535
+    t.string   "tag"                       # タグを保存
+    t.text     "text",       limit: 65535  # テキストを保存
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "user_id"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20180909164712) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "uid"
-    t.string   "provider"
+    t.string   "uid"                      # facebookログインのカラム
+    t.string   "provider"                 # facebookログインのカラム
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
